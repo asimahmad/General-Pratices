@@ -43,6 +43,18 @@ class LinkedList {
         }
         return a;
     }
+
+    findNthNode(node) {
+        this.count = 0;
+        this.currentNode = this.head;
+        while (this.currentNode != null) {
+            if (this.count + 1 === node) {
+                return this.currentNode.value;
+            }
+            this.count++;
+            this.currentNode = this.currentNode.next;
+        }
+    }
 }
 
 
@@ -50,3 +62,4 @@ const obj1 = new LinkedList(2);
 obj1.append(3);
 obj1.prepand(4);
 console.log(obj1.printList())
+console.log(obj1.findNthNode(2));
