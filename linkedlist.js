@@ -55,11 +55,31 @@ class LinkedList {
             this.currentNode = this.currentNode.next;
         }
     }
+
+    addPreNthNode(value, n) {
+        this.newNode = {
+            value: value,
+            next: null
+        }
+        this.count = 0;
+        this.currentNode = this.head;
+        this.temp = this.currentNode;
+        while (this.count + 1 != n) {
+            this.temp = this.currentNode;
+            this.currentNode = this.currentNode.next;
+            this.count++;
+        }
+        this.temp.next = this.newNode;
+        this.newNode.next = this.currentNode
+        this.length++
+    }
 }
 
 
 const obj1 = new LinkedList(2);
 obj1.append(3);
 obj1.prepand(4);
-console.log(obj1.printList())
-console.log(obj1.findNthNode(2));
+obj1.append(6);
+obj1.addPreNthNode(10, 2);
+obj1.addPreNthNode(15, 5);
+console.log(obj1.printList());
