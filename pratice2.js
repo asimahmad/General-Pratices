@@ -4,3 +4,4 @@ const c = false === false
 const d = null == undefined
 
 console.log(a, b, c, d)
+console.log(NaN)
