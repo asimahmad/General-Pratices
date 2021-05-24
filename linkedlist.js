@@ -73,6 +73,24 @@ class LinkedList {
         this.newNode.next = this.currentNode
         this.length++
     }
+
+    addPostNthNode(value, n) {
+        this.newNode = {
+            value: value,
+            next: null
+        }
+        this.count = 0;
+        this.currentNode = this.head;
+        this.temp = this.currentNode.next;
+        while (this.count + 1 != n) {
+            this.currentNode = this.currentNode.next;
+            this.temp = this.currentNode.next;
+            this.count++
+        }
+        this.currentNode.next = this.newNode;
+        this.newNode.next = this.temp;
+        this.length++;
+    }
 }
 
 
@@ -82,4 +100,5 @@ obj1.prepand(4);
 obj1.append(6);
 obj1.addPreNthNode(10, 2);
 obj1.addPreNthNode(15, 5);
+obj1.addPostNthNode(34, 5);
 console.log(obj1.printList());
