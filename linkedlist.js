@@ -93,7 +93,6 @@ class LinkedList {
     }
 }
 
-
 const obj1 = new LinkedList(2);
 obj1.append(3);
 obj1.prepand(4);
