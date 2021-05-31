@@ -46,8 +46,8 @@ class BTree {
     }
 
     lookUp(value) {
-        if (this.root.value === value) {
-            return this.root;
+        if (!this.root) {
+            return false;
         } else {
             this.currentNode = this.root
             while (this.currentNode) {
@@ -60,8 +60,13 @@ class BTree {
                     this.currentNode = this.currentNode.right
                 }
             }
-            return null;
+            return false;
         }
+    }
+
+
+    remove(value) {
+
     }
 
     getRoot() {
@@ -95,7 +100,52 @@ tree.add(2)
 tree.add(3)
 tree.add(0)
 console.log(tree.add(1))
-    //console.log(tree.lookUp(0));
-    //console.log(tree.lookUp(5));
-    //  const root = tree.getRoot();
-    //  tree.inOrder(root);
+console.log(tree.lookUp(20));
+//console.log(tree.lookUp(5));
+//  const root = tree.getRoot();
+//  tree.inOrder(root);
+
+
+
+// class Node {
+//     constructor(value) {
+//         this.value = value;
+//         this.right = null;
+//         this.left = null;
+//     }
+// }
+// class Tree {
+//     constructor() {
+//         this.root = null;
+//         this.count = 0;
+//     }
+
+//     insert(value) {
+//         this.newNode = new Node(value);
+//         if (!this.root) {
+//             this.root = this.newNode
+//         } else {
+//             this.currentNode = this.root;
+//             while (this.currentNode) {
+//                 if (this.newNode.value < this.currentNode.value) {
+//                     if (this.currentNode.left === null) {
+//                         this.currentNode.left = this.newNode
+//                     }
+//                     this.currentNode = this.currentNode.left;
+//                 } else {
+//                     if (this.currentNode.right === null) {
+//                         this.currentNode.right = this.newNode
+//                     }
+//                     this.currentNode = this.currentNode.right
+//                 }
+//             }
+//         }
+//         this.count++;
+//         return this;
+//     }
+// }
+// const tree = new Tree();
+// tree.insert(2);
+// tree.insert(1);
+// tree.insert(4);
+// console.log(tree.insert(3))
