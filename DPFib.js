@@ -1,3 +1,5 @@
+// using recursion
+
 const fnth = 6;
 
 let memo = Array(fnth + 1).fill(null)
@@ -20,3 +22,20 @@ const outTime = new Date().getTime();
 console.log(inTime, outTime)
 console.log("Time taken: ", outTime - inTime, " milliseconds");
 console.log(fib(fnth, memo))
+
+
+// using bottom-up approach
+
+const answer = n => {
+    if (n == 1 || n == 2) {
+        return 1;
+    }
+    bottom_up = Array(n + 1);
+    bottom_up[1] = 1;
+    bottom_up[2] = 1;
+    for (let i = 3; i <= n; i++) {
+        bottom_up[i] = bottom_up[i - 1] + bottom_up[i - 2];
+    }
+    return bottom_up[n];
+}
+console.log(answer(6));
