@@ -2,6 +2,6 @@
 # General-Pratices
 
 
-####### It has DSA in java script.
+###### It has DSA in java script.
 
 
